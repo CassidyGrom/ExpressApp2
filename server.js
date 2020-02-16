@@ -37,6 +37,7 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
   console.log(req.body);
   noteData.push(req.body);
+  res.json(req.body);
 });
 
 //listen for the action
