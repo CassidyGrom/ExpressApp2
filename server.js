@@ -9,7 +9,7 @@ const router = require("express").Router();
 
 //put express in a variable and name the port
 const app = express();
-const PORT = 3008;
+const PORT = 3010;
 
 //middleware
 app.use(express.urlencoded({ extended: true }));
@@ -20,15 +20,18 @@ app.use(express.json());
 var potato = "POTATO?!?!?";
 console.log(potato);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
 
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 //API requests
+app.get("/api/notes", (req, res) => {
+  res.json(noteData);
+});
 
 //listen for the action
 app.listen(PORT, () => {
