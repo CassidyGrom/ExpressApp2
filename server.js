@@ -9,7 +9,7 @@ const router = require("express").Router();
 
 //put express in a variable and name the port
 const app = express();
-const PORT = 3010;
+const PORT = 3011;
 
 //middleware
 app.use(express.urlencoded({ extended: true }));
@@ -28,9 +28,15 @@ app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
-//API requests
+//API get requests
 app.get("/api/notes", (req, res) => {
   res.json(noteData);
+});
+
+//API post request
+app.post("/api/notes", (req, res) => {
+  console.log(req.body);
+  noteData.push(req.body);
 });
 
 //listen for the action
