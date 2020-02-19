@@ -6,6 +6,7 @@ router.get("/api/notes", (req, res) => {
 });
 
 router.post("/api/notes", (req, res) => {
+  req.body.id = noteData.length;
   console.log(req.body);
   noteData.push(req.body);
   res.json(req.body);

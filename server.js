@@ -11,7 +11,7 @@ const apiRoutes = require("./routes/apiRoutes");
 
 //put express in a variable and name the port
 const app = express();
-const PORT = 3011;
+const PORT = 3000;
 
 //middleware
 app.use(express.urlencoded({ extended: true }));
